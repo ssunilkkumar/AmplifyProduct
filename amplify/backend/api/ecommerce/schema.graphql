@@ -1,0 +1,79 @@
+type Product @model {
+  id: ID!
+  name: String!
+  description: String!
+  price: String!
+  productCode: String!
+  seller: String!
+  ratingID: ID!
+  rating: Rating @connection(fields: ["ratingID"])
+  fitID: ID!
+  fit: Fit @connection(fields: ["fitID"])
+  materialID: ID!
+  material: Material @connection(fields: ["materialID"])
+  sizeID: ID!
+  size: Size @connection(fields: ["sizeID"])
+  detailID: ID!
+  detail: Detail @connection(fields: ["detailID"])
+  imageID: ID!
+  image: Image @connection(fields: ["imageID"])
+}
+
+type Rating @model {
+  id: ID!
+  one: String!
+  two: String!
+  three: String!
+  four: String!
+  five: String!
+}
+
+type Fit @model {
+  id: ID!
+  type: String!
+  model: String!
+}
+ type Size @model {
+  id: ID!
+  s: String!
+  m: String!
+  l: String!
+  xl: String!
+ }
+
+type Detail @model{
+  id: ID!
+  detailone: String!
+  detailtwo: String!
+  detailthree: String!
+  detailfour: String!
+  detailfive: String!
+  detailsix: String!
+}
+
+type Material @model {
+  id: ID!
+  closures: String!
+  fabric: String!
+  fit: String!
+  length: String!
+  maintrend: String!
+  multipack: String!
+  neck: String!
+  occasion: String!
+  pattern: String!
+}
+
+type Image @model {
+  id: ID!
+  imgone: String!
+  imgtwo: String!
+  imgthree: String!
+  imgfour: String!
+}
+
+type Cart @model {
+  id: ID!
+  productID: ID!
+  productItem: Product @connection(fields: ["productID"])
+}
