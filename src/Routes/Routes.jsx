@@ -16,7 +16,7 @@ export const Routes = () => {
     const handleCart = async (value) => {
         try {
             let payload ={
-                id: uuid(),
+                id: 111,
                 productID: value
             }
             const cart = await API.graphql(graphqlOperation(createCart, {input: payload}))
