@@ -1,0 +1,76 @@
+section {
+    margin-top: 100px;
+    
+}
+section  h1 {
+    width: 40%;
+    margin: auto;
+    background: rgb(248, 197, 197);
+    text-align: center;
+    padding:10px;
+    border-radius: 7px;
+}
+.display {
+    display: flex;
+    gap: 20px;
+    background-color: rgb(243, 247, 218);
+    padding:20px;
+    border-radius: 7px;
+    width: 70%;
+    margin: 100px auto;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.display img {
+    height: 200px
+}
+.head main {
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin: 0 0 10px 0;
+}
+.display span {
+    color: gray;
+    margin: 10px 0 40px 0;
+}
+.quantity {
+    display: flex;
+    gap:10px;
+    align-items: center;
+    margin: 10px 0;
+}
+.totalPrice {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    font-size: 20px;
+    padding: 5px 10px;
+    width: 150px;
+    background-color: rgb(169, 238, 250);
+    margin: 10px 0;
+}
+.button {
+    display: flex;
+    gap: 20px;
+}
+.button * {
+    border: none;
+    outline: none;
+    cursor: pointer;
+    border-radius: 7px;
+    color: white;
+    width: 30%;
+    padding:5px 10px;
+}
+.button button:first-child {
+    background-color: rgb(36, 167, 36);
+}
+.button button:last-child {
+    background-color: rgb(245, 45, 45);
+}
+.button button:first-child:hover {
+    opacity: 0.7;
+}
+.button button:last-child:hover {
+    opacity: 0.7;
+}

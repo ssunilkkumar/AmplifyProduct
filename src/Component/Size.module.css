@@ -1,0 +1,28 @@
+.box {
+    position: relative;
+    margin: 10px 0;
+}
+.box main{
+    border: 1px solid rgb(224, 222, 222);
+    width: 20px;
+    height: 20px;
+    padding: 10px;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+}
+
+.box main:hover {
+    border: 1px solid rgb(253, 65, 96);
+}
+.box div {
+    position: absolute;
+    top: 30px;
+    min-width: 100%;
+    background-color: rgb(245, 124, 63);
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    padding:2px 0;
+    border-radius: 7px;
+}

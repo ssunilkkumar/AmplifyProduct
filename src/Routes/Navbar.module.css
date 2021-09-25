@@ -1,0 +1,65 @@
+.fixed {
+    position: fixed;
+    top: 0;
+    width:100%;
+    z-index: 1;
+    background: white;
+}
+.head {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    align-items: center;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.logo img {
+    width: 60px;
+}
+
+.menu {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    font-size: 15px;
+    font-weight: bold;
+    width: 40%;
+}
+.menu * {
+    cursor: pointer;
+}
+
+.search {
+    position: relative;
+    display: flex;
+    align-items: center;
+    height: 40px;
+    width: 35%;
+}
+.searchIcon {
+    position: absolute;
+    top: 20%;
+    cursor: pointer;
+    margin-left: 5px;
+    color: gray
+}
+.search input[type="search"] {
+    height: 100%;
+    padding-left: 40px;
+    width: 100%;
+    border-radius: 7px;
+    background-color: rgb(241, 235, 235);
+    outline: none;
+    border: none;
+}
+
+.titleContent {
+    display: flex;
+    gap: 20px;
+    align-items: center;
+}
+.titleContent div {
+    text-align: center;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+}
