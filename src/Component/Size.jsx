@@ -9,7 +9,7 @@ export const Size = ({item}) => {
     
     const Div = styled.div`
         color: ${query === mySize ? "red" : "black"};
-        font-weight: ${query === mySize ? "600" : "400"};
+        font-weight: ${query === mySize ? "900" : "400"};
     `
 
     return (

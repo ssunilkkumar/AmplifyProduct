@@ -11,7 +11,7 @@ export const AppContext = createContext();
 
 export const AppContextProvider = ({children}) => {
     const [cart, setCart] = useState(false)
-    const [mySize, setMySize] = useState(false)
+    const [mySize, setMySize] = useState("m")
 
     const handleCartitem= async() => {
         try{
