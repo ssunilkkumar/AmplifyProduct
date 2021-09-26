@@ -73,7 +73,7 @@ export const Cart = () => {
                     <div>100%  SECURE</div>
                 </div>
             </div>
-            {detail === true  && (
+            {detail === false  && (
                 <div className={styles.emptyCart}>
                     <img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" alt="bagphoto" />
                     <main>Hey, it feels so light</main>
