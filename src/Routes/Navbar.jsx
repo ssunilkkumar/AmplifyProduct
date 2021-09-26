@@ -16,9 +16,9 @@ export const Navbar = () => {
         <div className={styles.fixed}>
             <div className={styles.head}>
             <div className={styles.menu}>
-                <div className={styles.logo}>
+                <Link to="/" className={styles.logo}>
                         <img src="https://www.searchpng.com/wp-content/uploads/2019/01/Myntra-logo-png-icon-715x715.png" alt="logo"/>
-                </div>
+                </Link>
                 <div>MEN</div>
                 <div>WOMEN</div>
                 <div>KIDS</div>
