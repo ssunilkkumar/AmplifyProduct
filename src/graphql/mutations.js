@@ -563,6 +563,7 @@ export const createCart = /* GraphQL */ `
   ) {
     createCart(input: $input, condition: $condition) {
       id
+      size
       productID
       productItem {
         id
@@ -652,6 +653,7 @@ export const updateCart = /* GraphQL */ `
   ) {
     updateCart(input: $input, condition: $condition) {
       id
+      size
       productID
       productItem {
         id
@@ -741,6 +743,7 @@ export const deleteCart = /* GraphQL */ `
   ) {
     deleteCart(input: $input, condition: $condition) {
       id
+      size
       productID
       productItem {
         id

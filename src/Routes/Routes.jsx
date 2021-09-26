@@ -5,33 +5,18 @@ import { Home } from './Home'
 import { Navbar } from './Navbar'
 import Amplify, {API, graphqlOperation} from 'aws-amplify'
 import awsconfig from "./../aws-exports"
-import {createCart} from "./../graphql/mutations"
-import { v4 as uuid } from 'uuid';
 
 Amplify.configure(awsconfig)
 
 export const Routes = () => {
-    const [cart, setCart] = useState(false)
-
-    const handleCart = async (value) => {
-        try {
-            let payload ={
-                id: 111,
-                productID: value
-            }
-            const cart = await API.graphql(graphqlOperation(createCart, {input: payload}))
-            setCart(cart.data.createCart)
-        } catch (error) {
-            console.log("error on adding in cart", error)
-        }
-    }
+   
 
     return (
         <div>
-            <Navbar data={cart.id}/>
+            <Navbar/>
             <Switch>
                 <Route exact path="/">
-                    <Home handleCart={handleCart}/>    
+                    <Home/>    
                 </Route>
                 <Route path="/cart" exact>
                     <Cart/>

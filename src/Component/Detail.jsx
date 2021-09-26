@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import styles from "./Detail.module.css"
 import StarIcon from '@mui/icons-material/Star';
 import { Size } from './Size';
@@ -9,6 +9,8 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import AssignmentOutlinedIcon from '@mui/icons-material/AssignmentOutlined';
 import StarHalfIcon from '@mui/icons-material/StarHalf';
 import { Rating } from './Rating';
+import { AppContext } from '../Context/AppContextProvider'
+
 
 export const Detail = ({data, handleCart}) => {
     const [rating, setRating] = useState("")
@@ -17,6 +19,8 @@ export const Detail = ({data, handleCart}) => {
     const [detail, setDetail] = useState([])
     const [fit, setFit] = useState([])
     const [material, setMaterial] = useState([])
+    const {handleAddCart} = useContext(AppContext)
+
 
     function calculate(data) {
         let rate = Object.entries(data.rating).filter(ele => (ele[0] !== "id" && ele[0] !== "createdAt" && ele[0] !== "updatedAt"))
@@ -78,7 +82,7 @@ export const Detail = ({data, handleCart}) => {
                 }
             </div>
             <div className={styles.button}>
-                <button onClick={() => handleCart(data.id)}>
+                <button onClick={() => handleAddCart(data.id)}>
                     <ShoppingBagOutlinedIcon />
                     <div> ADD TO BAG</div>
                 </button>

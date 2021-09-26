@@ -497,6 +497,7 @@ export const onCreateCart = /* GraphQL */ `
   subscription OnCreateCart {
     onCreateCart {
       id
+      size
       productID
       productItem {
         id
@@ -583,6 +584,7 @@ export const onUpdateCart = /* GraphQL */ `
   subscription OnUpdateCart {
     onUpdateCart {
       id
+      size
       productID
       productItem {
         id
@@ -669,6 +671,7 @@ export const onDeleteCart = /* GraphQL */ `
   subscription OnDeleteCart {
     onDeleteCart {
       id
+      size
       productID
       productItem {
         id

@@ -74,6 +74,7 @@ type Image @model {
 
 type Cart @model {
   id: ID!
+  size: String!
   productID: ID!
   productItem: Product @connection(fields: ["productID"])
 }

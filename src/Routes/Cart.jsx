@@ -1,13 +1,16 @@
-import React, {useState, useEffect} from 'react'
+import React, {useState, useEffect, useContext} from 'react'
 import {useParams} from "react-router-dom";
 import Amplify, {API, graphqlOperation} from 'aws-amplify'
 import awsconfig from "./../aws-exports"
 import {getCart} from "./../graphql/queries"
 import {deleteCart} from "./../graphql/mutations"
 import styles from "./Cart.module.css"
+import { AppContext } from '../Context/AppContextProvider'
+
 
 Amplify.configure(awsconfig)
 export const Cart = () => {
+    const {handleCartitem} = useContext(AppContext)
     const [detail, setDetails] = useState(false);
     const [count, setCount] = useState(1);
     const [total, setTotal] = useState(0)
@@ -43,6 +46,7 @@ export const Cart = () => {
             const cartList = cartData.data
             console.log("line 43", cartList)
             setDetails(false) 
+            handleCartitem()
         } catch(error) {
             console.log(`error on deleting cart: `, error)
         }

@@ -382,6 +382,7 @@ export const getCart = /* GraphQL */ `
   query GetCart($id: ID!) {
     getCart(id: $id) {
       id
+      size
       productID
       productItem {
         id
@@ -473,6 +474,7 @@ export const listCarts = /* GraphQL */ `
     listCarts(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
+        size
         productID
         productItem {
           id

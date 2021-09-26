@@ -6,10 +6,10 @@ import {listProducts} from "./../graphql/queries"
 import { Image } from '../Component/Image';
 import { Detail } from '../Component/Detail';
 
+
 Amplify.configure(awsconfig)
 export const Home = ({handleCart}) => {
     const [data, setData] = useState(null)
-    const [cart, setCart] = useState(null)
 
     const fetchProduct = async () => {
       try{

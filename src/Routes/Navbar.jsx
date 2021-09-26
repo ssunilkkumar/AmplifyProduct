@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from 'react'
+import React, {useEffect, useContext} from 'react'
 import styles from "./Navbar.module.css"
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
@@ -6,39 +6,12 @@ import ShoppingBagOutlinedIcon from '@mui/icons-material/ShoppingBagOutlined';
 import Box from '@mui/material/Box';
 import Badge from '@mui/material/Badge';
 import SearchIcon from '@mui/icons-material/Search';
-import Amplify, {API, graphqlOperation} from 'aws-amplify'
-import awsconfig from "./../aws-exports"
-import {listCarts} from "./../graphql/queries"
 import {Link} from "react-router-dom"
+import { AppContext } from '../Context/AppContextProvider'
 
-Amplify.configure(awsconfig)
-export const Navbar = ({data}) => {
-    const [cart, setCart] = useState(false)
+export const Navbar = () => {
+    const {cart} = useContext(AppContext)
 
-    useEffect(() => {
-        getCart()
-    },[data])
-
-    const getCart= async() => {
-        try{
-            const cartData = await API.graphql(graphqlOperation(listCarts))
-            const cartList = cartData.data.listCarts.items[0]
-            if(cartList === undefined) {
-                setCart(false)
-            }
-            else {
-                setCart(cartList)
-            }
-            
-        } catch(error) {
-            console.log(`error on fetching cart: `, error)
-        }
-    }
-
-    useEffect(() => {
-        getCart()
-    }, [])
-    
     return (
         <div className={styles.fixed}>
             <div className={styles.head}>
@@ -67,7 +40,7 @@ export const Navbar = ({data}) => {
                     <FavoriteBorderIcon/>
                     <div>Wishlist</div>
                 </div>
-                <div onClick={getCart}>
+                <div>
                     { cart && ( 
                         <Link to={`/cart/${cart.id}`} style={{ textDecoration: 'none', color: "black" }}>
                             <Badge badgeContent={1} color="error">
