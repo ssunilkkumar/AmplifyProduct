@@ -32,7 +32,9 @@ export const Cart = () => {
             }
             
         } catch(error) {
-            setDetails(false)
+            if(JSON.stringify(false)!==JSON.stringify(detail)) { 
+                setDetails(false)
+            }
             console.log(`error on fetching cart: `, error)
         }
     }
@@ -74,7 +76,7 @@ export const Cart = () => {
                     <div>100%  SECURE</div>
                 </div>
             </div>
-            {detail === false  && (
+            {detail === false || detail === null && (
                 <div className={styles.emptyCart}>
                     <img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" alt="bagphoto" />
                     <main>Hey, it feels so light</main>
