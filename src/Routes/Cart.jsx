@@ -76,7 +76,17 @@ export const Cart = () => {
                     <div>100%  SECURE</div>
                 </div>
             </div>
-            {detail === false || detail === null && (
+            {detail === false && (
+                <div className={styles.emptyCart}>
+                    <img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" alt="bagphoto" />
+                    <main>Hey, it feels so light</main>
+                    <div>There is nothing in your bag add Some items</div>
+                    <Link to="/">
+                        <button>ADD ITEMS FROM WISHLIST</button>
+                    </Link>
+                </div>
+            )}
+            {detail === null && (
                 <div className={styles.emptyCart}>
                     <img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" alt="bagphoto" />
                     <main>Hey, it feels so light</main>

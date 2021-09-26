@@ -1,6 +1,7 @@
 import React, {useState} from 'react'
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
+import {Redirect} from "react-router-dom"
 
 
 export const CartList = ({detail, img, handleDelete}) => {
@@ -10,6 +11,7 @@ export const CartList = ({detail, img, handleDelete}) => {
     const original = Number(detail.productItem.price)*(Number(detail.productItem.discount)/100)
 
     console.log("cartList = ",detail.productItem, detail.id)
+
     return (
         <div>
             <div>
