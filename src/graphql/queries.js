@@ -10,6 +10,7 @@ export const getProduct = /* GraphQL */ `
       price
       productCode
       seller
+      discount
       ratingID
       rating {
         id
@@ -95,6 +96,7 @@ export const listProducts = /* GraphQL */ `
         price
         productCode
         seller
+        discount
         ratingID
         rating {
           id
@@ -391,6 +393,7 @@ export const getCart = /* GraphQL */ `
         price
         productCode
         seller
+        discount
         ratingID
         rating {
           id
@@ -483,6 +486,7 @@ export const listCarts = /* GraphQL */ `
           price
           productCode
           seller
+          discount
           ratingID
           fitID
           materialID

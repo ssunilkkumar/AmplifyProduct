@@ -14,8 +14,6 @@ Amplify.configure(awsconfig)
 export const Cart = () => {
     const {handleCartitem} = useContext(AppContext)
     const [detail, setDetails] = useState(false);
-    const [count, setCount] = useState(1);
-    const [total, setTotal] = useState(0)
     const [img, setImg] = useState("");
     const {id} = useParams();
 
@@ -29,8 +27,7 @@ export const Cart = () => {
             else {
                 if(JSON.stringify(cartList)!==JSON.stringify(detail)) {
                     setDetails(cartList)
-                    setImg(cartList.image.imgone)
-                    setTotal(Number(cartList.price)*.5)
+                    setImg(cartList.productItem.image.imgone)
                 }  
             }
             
@@ -39,16 +36,11 @@ export const Cart = () => {
         }
     }
 
-    function handleTotal(count) {
-        let temp = count*((Number(detail.price)*.5))
-        setTotal(temp)
-    }
     const handleDelete = async () => {
         try{
             console.log(id)
             const cartData = await API.graphql(graphqlOperation(deleteCart,{input: {id: id}}))
             const cartList = cartData.data
-            console.log("line 43", cartList)
             setDetails(false) 
             handleCartitem()
         } catch(error) {
@@ -60,8 +52,7 @@ export const Cart = () => {
         if(id) {
             search(id)
         }
-        handleTotal(count)
-    }, [id, count, detail])
+    }, [id, detail])
 
 
     return (
@@ -92,9 +83,9 @@ export const Cart = () => {
                     </Link>
                 </div>
             )}
-            {/* { detail && ( */}
-                <CartList detail={detail} count={count} total={total} img={img}/>
-            {/* )} */}
+            { detail && (
+                <CartList detail={detail} img={img} handleDelete={handleDelete}/>
+             )}
         </div>
     )
 }

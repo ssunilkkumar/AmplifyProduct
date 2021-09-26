@@ -13,6 +13,7 @@ export const createProduct = /* GraphQL */ `
       price
       productCode
       seller
+      discount
       ratingID
       rating {
         id
@@ -96,6 +97,7 @@ export const updateProduct = /* GraphQL */ `
       price
       productCode
       seller
+      discount
       ratingID
       rating {
         id
@@ -179,6 +181,7 @@ export const deleteProduct = /* GraphQL */ `
       price
       productCode
       seller
+      discount
       ratingID
       rating {
         id
@@ -572,6 +575,7 @@ export const createCart = /* GraphQL */ `
         price
         productCode
         seller
+        discount
         ratingID
         rating {
           id
@@ -662,6 +666,7 @@ export const updateCart = /* GraphQL */ `
         price
         productCode
         seller
+        discount
         ratingID
         rating {
           id
@@ -752,6 +757,7 @@ export const deleteCart = /* GraphQL */ `
         price
         productCode
         seller
+        discount
         ratingID
         rating {
           id
