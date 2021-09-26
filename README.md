@@ -3,7 +3,6 @@
 <!-- ABOUT THE PROJECT -->
 ## About The Project
 
-[![Product Name Screen Shot][product-screenshot]](https://example.com)
 
 Product page of Myntra clone
 
@@ -61,9 +60,11 @@ This Project is about product page of Ecommerce site.
 <!-- USAGE EXAMPLES -->
 ## screenshot
 
-<img src="https://drive.google.com/file/d/1efcgf7JUHecXYYLdydZ-YBfPpVs_udxv/view?usp=sharing" alt="Logo" width="80" height="80">
 
-<img src="https://drive.google.com/file/d/166huRw5NxDJceXZAz8NgYvjdPbLNMT3X/view?usp=sharing" alt="Logo" width="80" height="80">
+<img src="asset/img1.png" alt="Logo">
+<hr/>
+
+<img src="asset/img2.png" alt="Logo">
 
 
 
