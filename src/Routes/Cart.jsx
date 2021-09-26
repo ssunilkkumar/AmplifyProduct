@@ -6,6 +6,8 @@ import {getCart} from "./../graphql/queries"
 import {deleteCart} from "./../graphql/mutations"
 import styles from "./Cart.module.css"
 import { AppContext } from '../Context/AppContextProvider'
+import {Link} from "react-router-dom"
+import { CartList } from '../Component/CartList';
 
 
 Amplify.configure(awsconfig)
@@ -20,14 +22,16 @@ export const Cart = () => {
     const search = async (id) => {
         try{
             const cartData = await API.graphql(graphqlOperation(getCart,{id: id}))
-            const cartList = cartData.data.getCart.productItem
+            const cartList = cartData.data.getCart
             if(cartList === undefined) {
                 setDetails(false)
             }
             else {
-                setDetails(cartList)
-                setImg(cartList.image.imgone)
-                setTotal(Number(cartList.price)*.5)
+                if(JSON.stringify(cartList)!==JSON.stringify(detail)) {
+                    setDetails(cartList)
+                    setImg(cartList.image.imgone)
+                    setTotal(Number(cartList.price)*.5)
+                }  
             }
             
         } catch(error) {
@@ -59,41 +63,38 @@ export const Cart = () => {
         handleTotal(count)
     }, [id, count, detail])
 
-    if(detail === false) {
-        return (
-            <section>
-                <h1>No Item In Cart</h1>
-            </section>
-        )
-    }
 
     return (
-        <section className={styles.display}>
-           <div>
-               { img && (
-                   <img src={img} alt="pic"/>
-               )}
-           </div>
-           <div >
-               <main className={styles.head}>{detail.name}</main>
-               <span>{detail.description}</span>
-               <hr/>
-               <div>Quantity</div>
-               <div className={styles.quantity}>
-                   <button onClick={()=> setCount(count+1)}>+</button>
-                   <div>{count}</div>
-                   <button onClick={()=> setCount(count-1)} disabled={count === 1}>-</button>
-               </div>
-               <div className={styles.totalPrice}>
-                    <main>TOTAL:</main>
-                    <div>{total}</div>
-               </div>
-               <div className={styles.button}>
-                   <button>Proceed</button>
-                   <button onClick={handleDelete}>Delete</button>
-               </div>
-
-           </div>
-        </section>
+        <div>
+            <div className={styles.head}>
+                <Link to="/" className={styles.logo}>
+                    <img src="https://www.searchpng.com/wp-content/uploads/2019/01/Myntra-logo-png-icon-715x715.png" alt="logo"/>
+                </Link>
+                <div className={styles.breadcrumbs}>
+                    <main>BAG</main>
+                    <div>----------</div>
+                    <div>ADDRESS</div>
+                    <div>----------</div>
+                    <div>PAYMENT</div>
+                </div>
+                <div className={styles.secure}>
+                    <img src="https://constant.myntassets.com/checkout/assets/img/sprite-secure.png" alt="secure" />
+                    <div>100%  SECURE</div>
+                </div>
+            </div>
+            {detail === true  && (
+                <div className={styles.emptyCart}>
+                    <img src="https://constant.myntassets.com/checkout/assets/img/empty-bag.webp" alt="bagphoto" />
+                    <main>Hey, it feels so light</main>
+                    <div>There is nothing in your bag add Some items</div>
+                    <Link to="/">
+                        <button>ADD ITEMS FROM WISHLIST</button>
+                    </Link>
+                </div>
+            )}
+            {/* { detail && ( */}
+                <CartList detail={detail} count={count} total={total} img={img}/>
+            {/* )} */}
+        </div>
     )
 }

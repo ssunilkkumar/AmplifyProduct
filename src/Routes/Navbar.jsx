@@ -10,7 +10,14 @@ import {Link} from "react-router-dom"
 import { AppContext } from '../Context/AppContextProvider'
 
 export const Navbar = () => {
-    const {cart} = useContext(AppContext)
+    const {handleCartitem, cart} = useContext(AppContext)
+    console.log("navbar =",cart)
+
+    useEffect(() => {
+        handleCartitem()
+    },[])
+
+    
 
     return (
         <div className={styles.fixed}>

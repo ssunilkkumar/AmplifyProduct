@@ -11,6 +11,7 @@ Amplify.configure(awsconfig)
 export const Home = ({handleCart}) => {
     const [data, setData] = useState(null)
 
+
     const fetchProduct = async () => {
       try{
           const productData = await API.graphql(graphqlOperation(listProducts))

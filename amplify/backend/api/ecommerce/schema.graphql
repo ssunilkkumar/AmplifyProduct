@@ -5,6 +5,7 @@ type Product @model {
   price: String!
   productCode: String!
   seller: String!
+  discount: String!
   ratingID: ID!
   rating: Rating @connection(fields: ["ratingID"])
   fitID: ID!

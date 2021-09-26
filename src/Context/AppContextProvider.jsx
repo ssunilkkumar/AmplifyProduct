@@ -14,6 +14,7 @@ export const AppContextProvider = ({children}) => {
     const [mySize, setMySize] = useState("m")
 
     const handleCartitem= async() => {
+        console.log("handleCartitem")
         try{
             const cartData = await API.graphql(graphqlOperation(listCarts))
             const cartList = cartData.data.listCarts.items[0]
@@ -21,7 +22,9 @@ export const AppContextProvider = ({children}) => {
                 setCart(false)
             }
             else {
-                setCart(cartList)
+                if(JSON.stringify(cartList)!==JSON.stringify(cart)) {
+                    setCart(cartList)
+                }  
             }
             
         } catch(error) {
