@@ -1,5 +1,10 @@
 .head  {
     display: none;
+    position: fixed;
+    z-index: 10;
+    top: 0;
+    width:100%;
+    background: white;
     align-items: center;
     justify-content: space-between;
     padding: 0 20px;

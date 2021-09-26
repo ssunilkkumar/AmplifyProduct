@@ -32,6 +32,7 @@ export const Cart = () => {
             }
             
         } catch(error) {
+            setDetails(false)
             console.log(`error on fetching cart: `, error)
         }
     }
