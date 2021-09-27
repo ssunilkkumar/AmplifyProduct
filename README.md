@@ -72,8 +72,10 @@ This Project is about product page of Ecommerce site.
 * signup then sign in(require email verification)
 
 [https://master.d38brrqxtnf511.amplifyapp.com/](https://master.d38brrqxtnf511.amplifyapp.com/)
-*click on Add to bag
-*click on Bag icon to check product in cart
+* click on Add to bag
+* click on Bag icon to check product in cart
+* Can remove from cart
+* Can Select size and quantity of product
 
 
 
