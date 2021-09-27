@@ -3,14 +3,26 @@ import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
 import styles from "./CartList.module.css"
 import ArrowDropDownOutlinedIcon from '@mui/icons-material/ArrowDropDownOutlined';
+import { CartPop } from './CartPop';
 
 export const CartList = ({detail, img, handleDelete}) => {
     const [mrp, setMrp] = useState(0);
     const [totalDiscount, setTotalDiscount] = useState(0);
     const [total, setTotal] = useState(0);
+    const [size, setSize] = useState(detail.size);
+    const [quantity, setQuantity] = useState(1);
+    const [open, setOpen] = useState(false);
+    const [model, setModel] = useState(false)
     const original = Number(detail.productItem.price)*(Number(detail.productItem.discount)/100)
 
     console.log("cartList = ",detail.productItem, detail.id)
+
+    const handleOpen = (value) => {
+        setModel(value);
+        setOpen(true);
+    }
+    const handleClose = () => setOpen(false);
+
 
     return (
         <div className={styles.content}>
@@ -46,18 +58,27 @@ export const CartList = ({detail, img, handleDelete}) => {
                         <div className={styles.size}>
                             <main>
                                 <div>Size:</div>
-                                <div>{detail.size}</div>
-                                <div>
+                                <div>{size}</div>
+                                <div onClick={() => handleOpen(true)}>
                                     <ArrowDropDownOutlinedIcon/>
                                 </div>
                             </main>
                             <main>
                                 <div>Qty:</div>
-                                <div>1</div>
-                                <div>
+                                <div>{quantity}</div>
+                                <div onClick={() => handleOpen(false)}>
                                     <ArrowDropDownOutlinedIcon/>
                                 </div>
                             </main>
+                            <div>
+                                <CartPop 
+                                    handleClose={handleClose} 
+                                    open={open} 
+                                    model={model} 
+                                    handleSize={(value)=> setSize(value)}
+                                    handleQuantity={(value => setQuantity(value))}
+                                />
+                            </div>
                         </div>
                         <div className={styles.price}>
                             <main>Rs.{original}</main>
