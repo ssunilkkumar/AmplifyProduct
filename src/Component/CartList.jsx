@@ -13,7 +13,7 @@ export const CartList = ({detail, img, handleDelete}) => {
     const [quantity, setQuantity] = useState(1);
     const [open, setOpen] = useState(false);
     const [model, setModel] = useState(false)
-    const original = Number(detail.productItem.price)*(Number(detail.productItem.discount)/100)
+    const original = Number(detail.productItem.price)-(Number(detail.productItem.price)*(Number(detail.productItem.discount)/100))
 
     console.log("cartList = ",detail.productItem, detail.id)
 
@@ -89,6 +89,7 @@ export const CartList = ({detail, img, handleDelete}) => {
                                     model={model} 
                                     handleSize={(value)=> {setSize(value); handleClose()}}
                                     handleQuantity={(value) => {setQuantity(value); handleClose()}}
+                                    s={size}
                                 />
                             </div>
                         </div>
@@ -120,11 +121,11 @@ export const CartList = ({detail, img, handleDelete}) => {
                 </section>
                 <section>
                     <div>Discount on MRP</div>
-                    <span>- Rs.{totalDiscount}</span>
+                    <span className={styles.fontGreen}>- Rs.{totalDiscount}</span>
                 </section>
                 <section>
                     <div>Coupon Discount</div>
-                    <span>Apply Coupon</span>
+                    <span className={styles.fontPink}>Apply Coupon</span>
                 </section>
                 <section>
                     <div className={styles.flex}>

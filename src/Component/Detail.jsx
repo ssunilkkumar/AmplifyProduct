@@ -14,7 +14,7 @@ import { AppContext } from '../Context/AppContextProvider'
 
 export const Detail = ({data, handleCart}) => {
     const [rating, setRating] = useState("")
-    const [DisPrice, setDisPrice] = useState([])
+    const [DisPrice, setDisPrice] = useState(0)
     const [size, setSize] = useState([])
     const [detail, setDetail] = useState([])
     const [fit, setFit] = useState([])
@@ -34,9 +34,9 @@ export const Detail = ({data, handleCart}) => {
         })
         setRating([(score/total).toFixed(1), total])
 
-        let price = Number(data.price)*.5    
+        let price = Number(data.price)*(Number(data.discount)/100)    
         let dis = Number(data.price)-price
-        setDisPrice([price, dis])    
+        setDisPrice(dis)    
 
         let sizing = Object.entries(data.size).filter(ele => (ele[0] !== "id" && ele[0] !== "createdAt" && ele[0] !== "updatedAt"))
         setSize(sizing)
@@ -67,7 +67,7 @@ export const Detail = ({data, handleCart}) => {
             <div className={styles.price}>
                 <main>Rs.{DisPrice[0]}</main>
                 <div>Rs.{data.price}</div>
-                <span>( 50% OFF )</span>
+                <span>( {data.discount}% OFF )</span>
             </div>
             <div className={styles.taxes}>inclusive of all taxes</div>
             <div className={styles.sizetitle}>

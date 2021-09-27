@@ -35,7 +35,7 @@ const style = {
         border-radius: 50%;
         border: 1px solid #dfe4df;
         padding: 10px;
-        background: #f5c8f5;
+        background: #f8d5f8;
         margin: 0 20px;
         color: ${(props) => (props.size === props.el ? "red" : "black")};
         font-weight: 900;
@@ -52,7 +52,7 @@ const style = {
         border-radius: 50%;
         border: 1px solid #cccecc;
         padding: 10px;
-        background: #f5c8f5;
+        background: #fcd8fc;
         margin: 0 20px;
         color: ${(props) => (props.quantity === props.el ? "red" : "black")};
         font-weight: 900;
@@ -87,9 +87,9 @@ const style = {
   const sizeArray = ["s", "m", "l", "xl"]
   const quantityArray = [1, 2, 3, 4]
 
-export const CartPop = ({handleClose, open, model, handleSize, handleQuantity}) => {
-    const [size, setSize] = useState("");
-    const [quantity, setQuantity] = useState(0);
+export const CartPop = ({handleClose, open, model, handleSize, handleQuantity, s}) => {
+    const [size, setSize] = useState(s);
+    const [quantity, setQuantity] = useState(1);
 
 
     return (
