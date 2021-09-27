@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import LocalOfferOutlinedIcon from '@mui/icons-material/LocalOfferOutlined';
 import LoyaltyOutlinedIcon from '@mui/icons-material/LoyaltyOutlined';
 import styles from "./CartList.module.css"
@@ -22,6 +22,18 @@ export const CartList = ({detail, img, handleDelete}) => {
         setOpen(true);
     }
     const handleClose = () => setOpen(false);
+
+    const handletotal = () => {
+        let totalmrp = Number(detail.productItem.price)*quantity
+        setMrp(totalmrp)
+        let totaldiscount = (Number(detail.productItem.price)*quantity)*(Number(detail.productItem.discount)/100)
+        setTotalDiscount(totaldiscount)
+        setTotal(totalmrp-totaldiscount)
+    }
+
+    useEffect(() => {
+       handletotal()
+    }, [quantity])
 
 
     return (
@@ -75,8 +87,8 @@ export const CartList = ({detail, img, handleDelete}) => {
                                     handleClose={handleClose} 
                                     open={open} 
                                     model={model} 
-                                    handleSize={(value)=> setSize(value)}
-                                    handleQuantity={(value => setQuantity(value))}
+                                    handleSize={(value)=> {setSize(value); handleClose()}}
+                                    handleQuantity={(value) => {setQuantity(value); handleClose()}}
                                 />
                             </div>
                         </div>
