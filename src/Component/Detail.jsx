@@ -65,7 +65,7 @@ export const Detail = ({data, handleCart}) => {
             </div>
             <hr/>
             <div className={styles.price}>
-                <main>Rs.{DisPrice[0]}</main>
+                <main>Rs. {DisPrice}</main>
                 <div>Rs.{data.price}</div>
                 <span>( {data.discount}% OFF )</span>
             </div>
