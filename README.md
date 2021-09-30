@@ -65,7 +65,12 @@ This Project is about product page of Ecommerce site.
 <hr/>
 
 <img src="asset/img2.png" alt="Logo">
+<hr/>
 
+<img src="asset/img3.png" alt="Logo">
+<hr/>
+
+<img src="asset/img4.png" alt="Logo">
 
 
 ## DEMO
